@@ -20,6 +20,7 @@
 
 %% Required Packages ----------------------------------------------------------
 
+\RequirePackage[utf8]{inputenc}
 \RequirePackage{lmodern}			% use Latin Modern Fonts
 \RequirePackage{cmap}				% make generated PDF files "searchable and copyable"
 \RequirePackage[T1]{fontenc}		% T1 font encoding for improved hyphenation
@@ -48,7 +49,7 @@
 \urlstyle{sf}
 
 \RequirePackage{verbatim}
-\RequirePackage{moreverb}
+%\RequirePackage{moreverb}
 \def\verbatimtabsize{2\relax}
 
 \RequirePackage{ifpdf}
@@ -63,6 +64,8 @@
 
 %% hyperref Setup -------------------------------------------------------------
 
+\RequirePackage{varioref}
+
 \RequirePackage[unicode]{hyperref}	% utf8-change
 \hypersetup{
 	linktocpage = true,				% make page number, not text, be link on TOC, LOF and LOT 
@@ -71,6 +74,8 @@
 	allbordercolors = {0 0 0.8},	% dark blue border for all types of links
 	breaklinks = true				% allow links to break over lines by making links over multiple lines
 }	%see https://www.tug.org/applications/hyperref/manual.html
+
+\RequirePackage{cleveref}
 
 % Redefine certain commands for bookmarks and meta-data
 \let\oldand\and
@@ -201,12 +206,24 @@
 	
 \ifthenelse{\equal{\bbl@main@language}{german} \or \equal{\bbl@main@language}{ngerman}}%
 {	\floatname{program}{Programm}
-  \floatname{algorithm}{Algorithmus}
+	\crefname{program}{Programm}{Programme}
+	\Crefname{program}{Programm}{Programme}
+	\crefname{listing}{Programm}{Programme}
+	\Crefname{listing}{Programm}{Programme}
+	\floatname{algorithm}{Algorithmus}
+	\crefname{algorithm}{Algorithmus}{Algorithmen}
+	\Crefname{algorithm}{Algorithmus}{Algorithmen}
 }{}
 
 \ifthenelse{\equal{\bbl@main@language}{english}}%
 {	\floatname{program}{Program}
-  \floatname{algorithm}{Algorithm}
+	\crefname{program}{program}{programs}
+	\Crefname{program}{Program}{Programs}
+	\crefname{listing}{program}{programs}
+	\Crefname{listing}{Program}{Programs}
+	\floatname{algorithm}{Algorithm}
+	\crefname{algorithm}{algorithm}{algorithms}
+	\Crefname{algorithm}{Algorithm}{Algorithms}
 }{}
 
 
