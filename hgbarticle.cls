@@ -1,5 +1,5 @@
-%% hgbreport.cls
-%% LaTeX template for creating lab and term reports as well as other forms of academic documentation
+%% hgbarticle.cls
+%% LaTeX class for creating lab and term reports as well as other forms of academic documentation.
 %% This file is part of the Hagenberg Thesis package for creating bachelors's and masters's theses
 %% Author: Wolfgang Hochleitner (wolfgang.hochleitner@fh-hagenberg.at)
 %% GitHub: https://github.com/Digital-Media/HagenbergThesis
@@ -8,13 +8,13 @@
 %% Package Information --------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hgbreport}[9999/01/01]
+\ProvidesClass{hgbthesis/hgbarticle}[9999/01/01]
 
 \RequirePackage{xifthen}
 
 \RequirePackage{ifpdf}	% for checking PDF mode 
-\ifpdf{}% \typeout{hgbreport: *** LaTeX in PDF mode ***}
-\else{\errmessage{hgbreport: *** LaTeX NOT running in PDF mode ***}}
+\ifpdf{}% \typeout{hgbarticle: *** LaTeX in PDF mode ***}
+\else{\errmessage{hgbarticle: *** LaTeX NOT running in PDF mode ***}}
 \fi
 
 
@@ -25,8 +25,8 @@
 
 %% Class options --------------------------------------------------------------
 
-\DeclareOption{notitlepage}{%
-	\PassOptionsToClass{\CurrentOption}{report}
+\DeclareOption{twocolumn}{%
+	\PassOptionsToClass{\CurrentOption}{article}
 }
 
 \DeclareOption{english}{%
@@ -38,7 +38,7 @@
 }
 
 \DeclareOption*{%
-	\ClassWarning{hgbreport}{Unknown document option '\CurrentOption'.}
+	\ClassWarning{hgbarticle}{Unknown document option '\CurrentOption'.}
 }
 
 \ProcessOptions
@@ -46,8 +46,13 @@
 
 %% Paper options and style file -----------------------------------------------
 
-\LoadClass[a4paper,11pt,onecolumn]{report}
+\LoadClass[a4paper,11pt]{article}
+
+%Adjust margins only in single-column mode
+\if@twocolumn%
+\else%
 \RequirePackage[top=36mm,bottom=40mm,left=32mm,right=32mm]{geometry} %showframe
+\fi%
 
 \RequirePackage{hgb}	% load associated style file hgb.sty
 
@@ -59,7 +64,7 @@
 		pdftitle={\@title},
 		pdfauthor={\@author},
 		pdfsubject={},
-		pdfcreator={LaTeX using class hgbreport [\hgbDate]},
+		pdfcreator={LaTeX using class hgbarticle [\hgbDate]},
 		pdfproducer={pdflatex},
 		pdfkeywords={}
 	}%

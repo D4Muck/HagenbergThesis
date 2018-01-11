@@ -8,7 +8,7 @@
 %% Package Information --------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{hgbthesis}[9999/01/01]
+\ProvidesClass{hgbthesis/hgbthesis}[9999/01/01]
 
 \RequirePackage{xifthen}
 
@@ -83,8 +83,8 @@
 \LoadClass[a4paper,11pt,oneside]{book}
 \RequirePackage[top=36mm,bottom=40mm,left=32mm,right=32mm]{geometry} %showframe
  
-\RequirePackage{hgbheadings}
-\RequirePackage{hgb}	% load associated style file hgb.sty
+\RequirePackage{hgbthesis/hgbheadings}
+\RequirePackage{hgbthesis/hgb}	% load associated style file hgb.sty
 
 
 %% Setup for Pages in the Front Matter ----------------------------------------
@@ -688,9 +688,9 @@ This work is published under the conditions of the
 
 %% Additional Hagenberg packages ----------------------------------------------
 
-\RequirePackage{hgbmath}
-\RequirePackage{hgbabbrev}
-%\RequirePackage{hgblistings}
-\RequirePackage{hgbbib}
+\RequirePackage{hgbthesis/hgbmath}
+\RequirePackage{hgbthesis/hgbabbrev}
+%\RequirePackage{hgbthesis/hgblistings}
+\RequirePackage{hgbthesis/hgbbib}
 
 \endinput
