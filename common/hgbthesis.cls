@@ -25,6 +25,7 @@
 \newcommand{\@diplomatitlepages}{}
 \newcommand{\@bachelortitlepages}{}
 \newcommand{\@internshiptitlepages}{}
+\newcommand{\@jkumastertitlepages}{} 
 \newcommand{\@maketitlepages}{\@mastertitlepages}  %Default: Master's thesis
 
 
@@ -57,6 +58,10 @@
 \DeclareOption{internship}{%
 	\renewcommand{\@maketitlepages}{\@internshiptitlepages}
 }
+
+\DeclareOption{jkumaster}{% 
+  \renewcommand{\@maketitlepages}{\@jkumastertitlepages} 
+} 
 
 \DeclareOption{english}{%
 	\renewcommand{\hgb@MainLanguage}{english}
@@ -367,6 +372,79 @@
 \end{titlepage}%
 }
 
+\newcommand{\@jkumastertitle}{%
+\begin{titlepage}%
+	
+\setlength{\unitlength}{1cm}
+
+\begin{picture}(0,0)(1.25,-3)
+
+{\sffamily
+
+\put(11.5,-2.5){\includegraphics[width=5.2cm]{jku_de}}
+
+\put(12.9,-4.2){
+	\begin{minipage}[t]{3.9cm}\footnotesize%
+	Eingereicht von\\
+	{\bfseries\@author}%
+	\vskip 4mm%
+	Angefertigt am\\
+	{\bfseries\@placeofstudy}%
+	\vskip 4mm%
+	Betreuer und\\ Erstbeurteiler\\
+	{\bfseries\@author}%
+	\vskip 4mm%
+	Zweitbeurteiler\\
+	{\bfseries\@author}%
+	\vskip 4mm%
+	Betreuer\\
+	{\bfseries\@author}%
+	\vskip 4mm%
+%%	\ifundefined{assist}\else
+	Mitbetreuung\\
+	{\bfseries\@author}%
+	\vskip 4mm%
+%%	\fi
+	\monthname[\value{@monthofsubmission}] \arabic{@yearofsubmission}
+	\end{minipage}
+}
+
+\put(12.9,-25){
+	\begin{minipage}[t]{3.9cm}\footnotesize%
+	{\bfseries JOHANNES KEPLER\\
+		UNIVERSIT\"AT
+		LINZ}\\
+	Altenbergerstra{\ss}e 69\\
+	4040 Linz, \"Osterreich\\
+	www.jku.at\\
+	DVR 0093696
+	\end{minipage}
+}
+
+\put(0,-12.2){
+	\begin{minipage}[b]{12cm}
+	\Huge\bfseries\@title
+	\end{minipage}
+}
+
+\put(0,-17.2){\includegraphics[width=4.4cm]{arr}}
+
+\put(0,-18.3){\begin{minipage}[t]{12cm}%
+	{\large{Masterarbeit}}%
+	\vskip 2mm%
+	zur Erlangung des akademischen Grades%
+	\vskip 3mm%
+	{\large{Master of Science}}
+	\vskip 3mm%
+	im Masterstudium
+	\vskip 3mm%
+	{\large\@programname}
+	\end{minipage}}
+}
+
+\end{picture}%
+\end{titlepage}%
+}
 
 % Copyright and License Page --------------------------------------------------
 
@@ -588,6 +666,10 @@ This work is published under the conditions of the
 	\@declarationpage
 }
 
+\renewcommand{\@jkumastertitlepages}{
+	\@jkumastertitle
+	\@declarationpage
+}
 
 % Add PDF meta data and create title pages
 
