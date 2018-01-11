@@ -77,9 +77,10 @@
 
 \LoadClass[a4paper,11pt,oneside]{book}
 \RequirePackage[top=36mm,bottom=40mm,left=32mm,right=32mm]{geometry} %showframe
-
+ 
 \RequirePackage{hgbheadings}
 \RequirePackage{hgb}	% load associated style file hgb.sty
+
 
 %% Setup for Pages in the Front Matter ----------------------------------------
 
